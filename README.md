@@ -1,15 +1,12 @@
-﻿# Property Tool
+﻿# Lottery App
 version 0.3
 By [Tri Nguyen]
 
 ## Overview
 
-Property Management Tool helps Real estate agents manage their projects.
-Agent manager uses this tool to manage projects, assigns properties to agents, define teams and make sure they collaborate effectively.
+Lottery app helps lottery players increase their chance of success; and lottery store owners manage their lottery and customers.
 
-Each agent is attached to a property at a time. When he or she updates status, every other agents in the same team is able to view and comment.
-Property management in real time has never been easier and more intuitive with Prop Tool.
+Features:
 
-
-Other features include:
-- Tax calculator
+- Check daily Toto result
+- Check Winning Shares and WInning Tickets Sold
