@@ -1,26 +1,31 @@
 <?php $this->pageTitle = Yii::app()->name; ?>
 <div class="jumbotron">
     <div class="container">
-        <h1>Property Manager</h1>
+        <h1>Lottery App</h1>
 
-        <p>Property Management Tool helps Real estate agents manage their projects. Agent manager uses this tool to manage projects, assigns properties to agents, define teams and make sure they collaborate effectively.
+        <p>Lottery App is the simplest way to check lottery results.
 
-			Each agent is attached to a property at a time. When he or she updates status, every other agents in the same team is able to view and comment. Property management in real time has never been easier and more intuitive with Prop Tool.</p>
+			Our features include:
+<br/>
+			<br/> Check the latest and past Toto results on your iOS device.
+			<br/> Navigate to any past Toto results quickly.
+
+</p>
 
         <p><a class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
     </div>
 </div>
-<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
-<p>Property Management Tool helps Real estate agents manage their projects. Agent manager uses this tool to manage projects, assigns properties to agents, define teams and make sure they collaborate effectively.
-
-	Each agent is attached to a property at a time. When he or she updates status, every other agents in the same team is able to view and comment. Other features include:</p>
-<ul>
-    <li>Tax Calculator</li>
-	<li>Live status update</li>
-	<li>Location-based notifications</li>
-</ul>
-<p>For more details please contact <a href="mailto:derek.do@usvsolutions.com">admin</a>.
-    Feel free to ask in our <a href="#">forum</a>
+<!--<h1>Welcome to <i>--><?php //echo CHtml::encode(Yii::app()->name); ?><!--</i></h1>-->
+<!--<p>Property Management Tool helps Real estate agents manage their projects. Agent manager uses this tool to manage projects, assigns properties to agents, define teams and make sure they collaborate effectively.-->
+<!---->
+<!--	Each agent is attached to a property at a time. When he or she updates status, every other agents in the same team is able to view and comment. Other features include:</p>-->
+<!--<ul>-->
+<!--    <li>Tax Calculator</li>-->
+<!--	<li>Live status update</li>-->
+<!--	<li>Location-based notifications</li>-->
+<!--</ul>-->
+<!--<p>For more details please contact <a href="mailto:derek.do@usvsolutions.com">admin</a>.-->
+<!--    Feel free to ask in our <a href="#">forum</a>-->
 <!--<div class="row">-->
 <!--    <div class="col-lg-4">-->
 <!--        <h2>Heading</h2>-->
