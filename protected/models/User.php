@@ -14,7 +14,7 @@
  *
  * The followings are the available columns in table '{{user}}':
  * @property integer $id
- * @property string $username
+ * @property string $name
  *@property string $email
  * @property integer $status
  * @property string $password
@@ -159,7 +159,7 @@ class User extends CActiveRecord
     public function getFullName()
     {
 
-        return $this->username;
+        return $this->name;
     }
 
     /**

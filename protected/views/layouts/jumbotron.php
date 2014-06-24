@@ -19,13 +19,10 @@
                             'linkOptions' => array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown'),
                             'submenuOptions' => array('class' => 'dropdown-menu'),
                             'items' => array(
-								array('label' => 'Teams', 'url' => array('/team')),
 								array('label' => 'Users', 'url' => array('/user')),
-								array('label' => 'Projects', 'url' => array('/project')),
-//								array('label' => 'Units', 'url' => array('/unit')),
-								array('label' => 'Developers', 'url' => array('/developer')),
-								array('label' => 'ProjectStatus', 'url' => array('/projectStatus')),
-								array('label' => 'DevelopmentType', 'url' => array('/developmentType')),
+								array('label' => 'Locations', 'url' => array('/location')),
+								array('label' => 'Lotto Results', 'url' => array('/totoResult')),
+								array('label' => 'Winning Groups', 'url' => array('/winningGroup')),
                             )
                         ),
 						array('label' => 'Register', 'url' => array('/site/register'),'visible' => app()->user->isGuest),

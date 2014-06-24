@@ -1,16 +1,16 @@
 <?php
-/* @var $this UserController */
-/* @var $model User */
+/* @var $this LocationController */
+/* @var $model Location */
 
 
 $this->breadcrumbs=array(
-	'Users'=>array('index'),
+	'Locations'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List User', 'url'=>array('index')),
-	array('label'=>'Create User', 'url'=>array('create')),
+	array('label'=>'List Location', 'url'=>array('index')),
+	array('label'=>'Create Location', 'url'=>array('create')),
 );
 $b = Yii::app()->request->baseUrl;
 
@@ -20,7 +20,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#user-grid').yiiGridView('update', {
+	$('#location-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -28,7 +28,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Users</h1>
+<h1>Manage Locations</h1>
 <div class="col-md-12">
 <p>
     You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>
@@ -44,41 +44,26 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
-	'id'=>'user-grid',
+	'id'=>'location-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'roles',
-		'name',
-		'cea_number',
-		'nric',
+		'store_name',
+		'address_line_1',
+		'address_line_2',
+		'city',
+		'state',
 		/*
-		'avatar',
-		'email',
-		'password',
-		'username',
-		'status',
-		'password_strategy',
-		'requires_new_password',
-		'reset_token',
-		'login_attempts',
-		'login_time',
-		'login_ip',
-		'activation_key',
-		'validation_key',
-		'create_time',
-		'update_time',
-		'salt',
-		'license_number',
+		'zipcode',
+		'country_code',
+		'note',
+		'latitude',
+		'longitude',
 		*/
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),
-		array(            // display a column with "view", "update" and "delete" buttons
-			'class'=>'CButtonColumn',
-		),
-
 	),
 )); ?>
 </div>
@@ -88,9 +73,9 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 			Operations
 		</h3>
 		<ul class="list-group">
-			<li class="list-group-item"><a href="<?=$b?>/<?=get_class($model)?>">List <?=get_class($model)?></a></li>
-			<li class="list-group-item"><a href="<?=$b?>/<?=get_class($model)?>/create">Create <?=get_class($model)?></a></li>
-			<li class="list-group-item"><a href="<?=$b?>/<?=get_class($model)?>/admin">Manage <?=get_class($model)?>s</a></li>
+			<li class="list-group-item"><a href="/<?=get_class($model)?>">List <?=get_class($model)?></a></li>
+			<li class="list-group-item"><a href="/<?=get_class($model)?>/create">Create <?=get_class($model)?></a></li>
+			<li class="list-group-item"><a href="/<?=get_class($model)?>/admin">Manage <?=get_class($model)?>s</a></li>
 		</ul>
 	</div>
 </div>

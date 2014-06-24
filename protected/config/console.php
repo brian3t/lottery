@@ -17,9 +17,9 @@ return array(
 		),*/
 		// uncomment the following to use a MySQL database
         'db'=>array(
-      			'connectionString' => 'mysql:host=localhost;dbname=mot_pt',
+      			'connectionString' => 'mysql:host=localhost;dbname=mot_lot',
       			'emulatePrepare' => true,
-      			'username' => 'mot_pt',
+      			'username' => 'mot_lot',
       			'password' => 'tomTrapok)1',
       			'charset' => 'utf8',
       		),

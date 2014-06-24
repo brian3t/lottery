@@ -13,10 +13,10 @@
 	<?php echo CHtml::link(CHtml::encode($data->email),array('view','id'=>$data->id)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('team_id')); ?>:</b>
-	<?php echo array_reduce(CHtml::listData(Team::model()->findAll(),$data->team_id,'description'), function($carry,$item){$carry .= $item . ' '; return $carry;}); ?>
-<!--	--><?php //echo var_dump(CHtml::listData(Team::model()->findAllByAttributes(array('id' => $data->team_id)),'id','description')); ?>
-	<br />
+<!--	<b>--><?php //echo CHtml::encode($data->getAttributeLabel('team_id')); ?><!--:</b>-->
+<!--	--><?php //echo array_reduce(CHtml::listData(Team::model()->findAll(),$data->team_id,'description'), function($carry,$item){$carry .= $item . ' '; return $carry;}); ?>
+<!--<!--	--><?php ////echo var_dump(CHtml::listData(Team::model()->findAllByAttributes(array('id' => $data->team_id)),'id','description')); ?>
+<!--	<br />-->
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('roles')); ?>:</b>
 	<?php echo CHtml::encode($data->roles); ?>
@@ -26,17 +26,6 @@
 	<?php echo CHtml::encode($data->name); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('cea_number')); ?>:</b>
-	<?php echo CHtml::encode($data->cea_number); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('nric')); ?>:</b>
-	<?php echo CHtml::encode($data->nric); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('avatar')); ?>:</b>
-	<?php echo CHtml::encode($data->avatar); ?>
-	<br />
 
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>

@@ -6,7 +6,7 @@
 // CWebApplication properties can be configured here.
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
-    'name' => 'Property Management',
+    'name' => 'Lottery Result',
     //'theme'=>'bootstrap2',
     //Available layouts for Bootstrap v2.3.2 :starter,hero,fluid,carousel,justified-nav,marketing-narrow. (uncomment 'theme'=>'bootstrap2' to use these).
     // Available layouts for Bootstrap v3.0.0 :starter-template,offcanvas,carousel,justified-nav,jumbotron,jumbotron-narrow.
@@ -29,7 +29,8 @@ return array(
         //DEBUGGING STUFF
         'application.vendors.FirePHPCore.FirePHP',
         'application.vendors.FirePHPCore.FB',
-    ),
+		'application.commands.*',
+	),
     'aliases' => array(
         //yiistrap
         'bootstrap' => realpath(__DIR__ . DS.'..'.DS.'extensions'.DS.'bootstrap'),
@@ -98,8 +99,8 @@ return array(
         'db' => (!APP_DEPLOYED) ?
             array( //LOCALHOST
                 'class' => 'CDbConnection',
-                'connectionString' => 'mysql:host=localhost;dbname=mot_pt',
-                'username' => 'mot_pt',
+                'connectionString' => 'mysql:host=localhost;dbname=mot_lot',
+                'username' => 'mot_lot',
                 'password' => 'tomTrapok)1',
                 'charset' => 'UTF8',
                 'tablePrefix' => '', // even empty table prefix required!!!
@@ -107,12 +108,14 @@ return array(
                 'enableProfiling' => true,
                 'schemaCacheID' => 'cache',
                 'queryCacheID' => 'cache',
-                'schemaCachingDuration' => 120
-            ):
+                'schemaCachingDuration' => 120,
+				'enableParamLogging'=>true,
+
+			):
         array(       //SERVER
             'class' => 'CDbConnection',
-                              'connectionString' => 'mysql:host=localhost;dbname=mot_pt',
-                               'username' => 'mot_pt',
+                              'connectionString' => 'mysql:host=localhost;dbname=mot_lot',
+                               'username' => 'mot_lot',
                                'password' => 'tomTrapok)1',
                                'charset' => 'UTF8',
                                'tablePrefix' => '',
@@ -127,13 +130,15 @@ return array(
     // use 'site/error' action to display errors
     'errorAction' => 'site/error',
 ),
-        'log' => array(
-    'class' => 'CLogRouter',
-    'routes' => array(
-        array(
-            'class' => 'CFileLogRoute',
-            'levels' => 'error, warning',
-        ),
+		'log'=>array(
+			'class'=>'CLogRouter',
+			'routes'=>array(
+				array(
+					'class'=>'CFileLogRoute',
+					'levels'=>'trace',
+					'categories'=>'system.db.*',
+					'logFile'=>'sql.log',
+				),
         // uncomment the following to show log messages on web pages
         /*
         array(
