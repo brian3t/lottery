@@ -28,8 +28,9 @@
 					'id' => 'TotoResult_date',
 					'pluginOptions' => array(
 						'format' => 'yyyy-mm-dd',
-						'type' => 'date'
-					)
+						'type' => 'date',
+					),
+					'value' => $model->date
 				));
 				?>
 				<span class="add-on"><icon class="icon-calendar"></icon></span>
