@@ -31,9 +31,9 @@ $modelName = substr($thisClass,0, strlen($thisClass) - strlen("Controller"));
 			Operations
 		</h3>
 		<ul class="list-group">
-			<li class="list-group-item"><a href="/<?=$modelName?>">List <?=$modelName?></a></li>
-			<li class="list-group-item"><a href="/<?=$modelName?>/create">Create <?=$modelName?></a></li>
-			<li class="list-group-item"><a href="/<?=$modelName?>/admin">Manage <?=$modelName?></a></li>
+			<li class="list-group-item"><a href="<?=Yii::app()->getBaseUrl()?>/<?=$modelName?>">List <?=$modelName?></a></li>
+			<li class="list-group-item"><a href="<?=Yii::app()->getBaseUrl()?>/<?=$modelName?>/create">Create <?=$modelName?></a></li>
+			<li class="list-group-item"><a href="<?=Yii::app()->getBaseUrl()?>/<?=$modelName?>/admin">Manage <?=$modelName?></a></li>
 		</ul>
 	</div>
 </div>

@@ -5,7 +5,7 @@
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 return array(
-    'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
+    'basePath' =>  dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' ,
     'name' => 'Lottery Result',
     //'theme'=>'bootstrap2',
     //Available layouts for Bootstrap v2.3.2 :starter,hero,fluid,carousel,justified-nav,marketing-narrow. (uncomment 'theme'=>'bootstrap2' to use these).
@@ -84,6 +84,7 @@ return array(
         'urlManager' => array(
 			'urlFormat' => 'path',
 			'showScriptName' => false,
+			'baseUrl' => '/lottery',
 			'rules' => array(
 				'site/page/<view:\w+>' => 'site/page/',
 				'<controller:\w+>/<id:\d+>' => '<controller>/view',
