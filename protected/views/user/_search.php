@@ -11,27 +11,27 @@
 	'method'=>'get',
 )); ?>
 
-                    <?php echo $form->textFieldControlGroup($model,'id',array('span'=>5)); ?>
+                    <?php echo $form->textFieldControlGroup($model,'id',array('class'=>'col-md-6')); ?>
 
-                    <?php echo $form->textFieldControlGroup($model,'roles',array('span'=>5,'maxlength'=>255)); ?>
+                    <?php echo $form->textFieldControlGroup($model,'roles',array('class'=>'col-md-6','maxlength'=>255)); ?>
 
-                    <?php echo $form->textFieldControlGroup($model,'name',array('span'=>5,'maxlength'=>255)); ?>
+                    <?php echo $form->textFieldControlGroup($model,'name',array('class'=>'col-md-6','maxlength'=>255)); ?>
 
-                    <?php echo $form->textFieldControlGroup($model,'email',array('span'=>5,'maxlength'=>255)); ?>
+                    <?php echo $form->textFieldControlGroup($model,'email',array('class'=>'col-md-6','maxlength'=>255)); ?>
 
-                    <?php echo $form->textFieldControlGroup($model,'status',array('span'=>5)); ?>
+                    <?php echo $form->textFieldControlGroup($model,'status',array('class'=>'col-md-6')); ?>
 
-                    <?php echo $form->textFieldControlGroup($model,'login_attempts',array('span'=>5)); ?>
+                    <?php echo $form->textFieldControlGroup($model,'login_attempts',array('class'=>'col-md-6')); ?>
 
-                    <?php echo $form->textFieldControlGroup($model,'login_time',array('span'=>5)); ?>
+                    <?php echo $form->textFieldControlGroup($model,'login_time',array('class'=>'col-md-6')); ?>
 
-                    <?php echo $form->textFieldControlGroup($model,'login_ip',array('span'=>5,'maxlength'=>32)); ?>
+                    <?php echo $form->textFieldControlGroup($model,'login_ip',array('class'=>'col-md-6','maxlength'=>32)); ?>
 
-                    <?php echo $form->textFieldControlGroup($model,'activation_key',array('span'=>5,'maxlength'=>128)); ?>
+                    <?php echo $form->textFieldControlGroup($model,'activation_key',array('class'=>'col-md-6','maxlength'=>128)); ?>
 
-                    <?php echo $form->textFieldControlGroup($model,'validation_key',array('span'=>5,'maxlength'=>255)); ?>
+                    <?php echo $form->textFieldControlGroup($model,'validation_key',array('class'=>'col-md-6','maxlength'=>255)); ?>
 
-                    <?php echo $form->textFieldControlGroup($model,'create_time',array('span'=>5)); ?>
+                    <?php echo $form->textFieldControlGroup($model,'create_time',array('class'=>'col-md-6')); ?>
 
 
         <div class="form-actions">

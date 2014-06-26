@@ -17,7 +17,7 @@ class BootstrapCode extends CrudCode
             return "TbHtml::activeCheckBoxControlGroup(\$model,'{$column->name}')";
         } else {
             if (stripos($column->dbType, 'text') !== false) {
-                return "TbHtml::activeTextAreaControlGroup(\$model,'{$column->name}',array('rows'=>6,'span'=>8))";
+                return "TbHtml::activeTextAreaControlGroup(\$model,'{$column->name}',array('rows'=>6,'class'=>'col-md-8'))";
             } else {
                 if (preg_match('/^(password|pass|passwd|passcode)$/i', $column->name)) {
                     $inputField = 'activePasswordControlGroup';
@@ -43,7 +43,7 @@ class BootstrapCode extends CrudCode
             return "\$form->checkBoxControlGroup(\$model,'{$column->name}')";
         } else {
             if (stripos($column->dbType, 'text') !== false) {
-                return "\$form->textAreaControlGroup(\$model,'{$column->name}',array('rows'=>6,'span'=>8))";
+                return "\$form->textAreaControlGroup(\$model,'{$column->name}',array('rows'=>6,'class'=>'col-md-6'))";
             } else {
                 if (preg_match('/^(password|pass|passwd|passcode)$/i', $column->name)) {
                     $inputField = 'passwordFieldControlGroup';
@@ -52,9 +52,9 @@ class BootstrapCode extends CrudCode
                 }
 
                 if ($column->type !== 'string' || $column->size === null) {
-                    return "\$form->{$inputField}(\$model,'{$column->name}',array('span'=>5))";
+                    return "\$form->{$inputField}(\$model,'{$column->name}',array('class'=>'col-md-6'))";
                 } else {
-                    return "\$form->{$inputField}(\$model,'{$column->name}',array('span'=>5,'maxlength'=>$column->size))";
+                    return "\$form->{$inputField}(\$model,'{$column->name}',array('class'=>'col-md-6','maxlength'=>$column->size))";
                 }
             }
         }

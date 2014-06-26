@@ -5,12 +5,9 @@
 
 <div class="view">
 
-    	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id),array('view','id'=>$data->id)); ?>
-	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('store_name')); ?>:</b>
-	<?php echo CHtml::encode($data->store_name); ?>
+	<?php echo CHtml::link(CHtml::encode($data->store_name),array('view','id'=>$data->id)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('address_line_1')); ?>:</b>

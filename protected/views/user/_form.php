@@ -19,35 +19,35 @@
 
     <?php echo $form->errorSummary($model); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'roles',array('span'=>5,'maxlength'=>255)); ?>
+            <?php echo $form->textFieldControlGroup($model,'roles',array('class'=>'col-md-6','maxlength'=>255)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'name',array('span'=>5,'maxlength'=>255)); ?>
+            <?php echo $form->textFieldControlGroup($model,'name',array('class'=>'col-md-6','maxlength'=>255)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'email',array('span'=>5,'maxlength'=>255)); ?>
+            <?php echo $form->textFieldControlGroup($model,'email',array('class'=>'col-md-6','maxlength'=>255)); ?>
 
-            <?php echo $form->passwordFieldControlGroup($model,'password',array('span'=>5,'maxlength'=>255)); ?>
+            <?php echo $form->passwordFieldControlGroup($model,'password',array('class'=>'col-md-6','maxlength'=>255)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'status',array('span'=>5)); ?>
+            <?php echo $form->textFieldControlGroup($model,'status',array('class'=>'col-md-6')); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'requires_new_password',array('span'=>5)); ?>
+            <?php echo $form->textFieldControlGroup($model,'requires_new_password',array('class'=>'col-md-6')); ?>
 
-<!--            --><?php //echo $form->textFieldControlGroup($model,'reset_token',array('span'=>5,'maxlength'=>255)); ?>
+<!--            --><?php //echo $form->textFieldControlGroup($model,'reset_token',array('class'=>'col-md-6','maxlength'=>255)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'login_attempts',array('span'=>5)); ?>
+            <?php echo $form->textFieldControlGroup($model,'login_attempts',array('class'=>'col-md-6')); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'login_time',array('span'=>5)); ?>
+            <?php echo $form->textFieldControlGroup($model,'login_time',array('class'=>'col-md-6')); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'login_ip',array('span'=>5,'maxlength'=>32)); ?>
+            <?php echo $form->textFieldControlGroup($model,'login_ip',array('class'=>'col-md-6','maxlength'=>32)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'activation_key',array('span'=>5,'maxlength'=>128)); ?>
+            <?php echo $form->textFieldControlGroup($model,'activation_key',array('class'=>'col-md-6','maxlength'=>128)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'validation_key',array('span'=>5,'maxlength'=>255)); ?>
+            <?php echo $form->textFieldControlGroup($model,'validation_key',array('class'=>'col-md-6','maxlength'=>255)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'create_time',array('span'=>5)); ?>
+            <?php echo $form->textFieldControlGroup($model,'create_time',array('class'=>'col-md-6')); ?>
 
-<!--            --><?php //echo $form->textFieldControlGroup($model,'update_time',array('span'=>5)); ?>
+<!--            --><?php //echo $form->textFieldControlGroup($model,'update_time',array('class'=>'col-md-6')); ?>
 <!---->
-<!--            --><?php //echo $form->textFieldControlGroup($model,'salt',array('span'=>5,'maxlength'=>255)); ?>
+<!--            --><?php //echo $form->textFieldControlGroup($model,'salt',array('class'=>'col-md-6','maxlength'=>255)); ?>
 
 
         <div class="form-actions">

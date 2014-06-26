@@ -2,7 +2,17 @@
 /* ==|== Custom CSS ========================================
    Please define your custom styles after this section.
    ========================================================================== */
+#map-canvas { height: 100%;
+    min-height: 300px;
+    max-width: 50%; }
 
+div#clipboard {
+    position: fixed;
+    left:1%;
+    top: 100px;
+    width: 284px;
+}
+input,textarea{padding: 0px!important;}
 .page-min-height{
     min-height: 650px;
     }
@@ -29,6 +39,9 @@ div.view {
     margin: 8px;
 }
 .btn:hover, .btn:focus{color: inherit !important;}
+.control-group{
+    clear: both;min-height: 52px;
+}
 
 
 /* ==|== non-semantic helper classes ========================================
@@ -78,7 +91,16 @@ div.view {
   h2, h3 { page-break-after: avoid; }
 }
 
-
+.voffset  { margin-top: 2px; }
+.voffset1 { margin-top: 5px; }
+.voffset2 { margin-top: 10px; }
+.voffset3 { margin-top: 15px; }
+.voffset4 { margin-top: 30px; }
+.voffset5 { margin-top: 40px; }
+.voffset6 { margin-top: 60px; }
+.voffset7 { margin-top: 80px; }
+.voffset8 { margin-top: 100px; }
+.voffset9 { margin-top: 150px; }
 
 
 

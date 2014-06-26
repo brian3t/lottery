@@ -19,13 +19,13 @@
 
     <?php echo $form->errorSummary($model); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'group_tier',array('span'=>5)); ?>
+            <?php echo $form->textFieldControlGroup($model,'group_tier',array('class'=>'col-md-6')); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'amount',array('span'=>5,'maxlength'=>20)); ?>
+            <?php echo $form->textFieldControlGroup($model,'amount',array('class'=>'col-md-6','maxlength'=>20)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'num_of_winning_shares',array('span'=>5)); ?>
+            <?php echo $form->textFieldControlGroup($model,'num_of_winning_shares',array('class'=>'col-md-6')); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'toto_result_id',array('span'=>5)); ?>
+            <?php echo $form->textFieldControlGroup($model,'toto_result_id',array('class'=>'col-md-6')); ?>
 
         <div class="form-actions">
         <?php echo TbHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array(

@@ -38,13 +38,13 @@
 		</div>
 	</div>
 
-<!--            --><?php //echo $form->dateFieldControlGroup($model,'date_time',array('span'=>5)); ?>
+<!--            --><?php //echo $form->dateFieldControlGroup($model,'date_time',array('class'=>'col-md-6')); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'winning_numbers',array('span'=>5,'maxlength'=>800)); ?>
+            <?php echo $form->textFieldControlGroup($model,'winning_numbers',array('class'=>'col-md-6','maxlength'=>800)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'additional_winning_number',array('span'=>5)); ?>
+            <?php echo $form->textFieldControlGroup($model,'additional_winning_number',array('class'=>'col-md-6')); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'draw_number',array('span'=>5)); ?>
+            <?php echo $form->textFieldControlGroup($model,'draw_number',array('class'=>'col-md-6')); ?>
 
         <div class="form-actions">
         <?php echo TbHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array(
