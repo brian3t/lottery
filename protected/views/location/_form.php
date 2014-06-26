@@ -1,6 +1,7 @@
 <?php
 echo '<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>';
 echo '<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>';
+Yii::app()->getClientScript()->registerCssFile(bu().'/css/gmap.css');
 
 ?>
 
@@ -48,9 +49,9 @@ echo '<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>';
 
 	<?php echo $form->textFieldControlGroup($model,'note',array('class'=>'col-md-6','maxlength'=>45)); ?>
 
-	<?php echo $form->textFieldControlGroup($model,'latitude',array('class'=>'col-md-6')); ?>
+	<?php echo $form->textFieldControlGroup($model,'latitude',array('class'=>'col-md-6','disabled'=>'disabled')); ?>
 
-	<?php echo $form->textFieldControlGroup($model,'longitude',array('class'=>'col-md-6')); ?>
+	<?php echo $form->textFieldControlGroup($model,'longitude',array('class'=>'col-md-6','disabled'=>'disabled')); ?>
 
 	<div class="form-actions">
 		<?php echo TbHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array(
@@ -59,6 +60,7 @@ echo '<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>';
 		)); ?>
 	</div>
 
+	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
 	<div id="map-canvas" class="voffset3">
 	</div>
 
@@ -67,16 +69,84 @@ echo '<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>';
 </div><!-- form -->
 
 <?php
-Yii::app()->clientScript->registerScriptFile('https://maps.googleapis.com/maps/api/js?key=AIzaSyC1RpnsU0y0yPoQSg1G_GyvmBmO5i1UH5E',CClientScript::POS_HEAD);
+Yii::app()->clientScript->registerScriptFile('https://maps.googleapis.com/maps/api/js?key=AIzaSyC1RpnsU0y0yPoQSg1G_GyvmBmO5i1UH5E&v=3.exp&libraries=places',CClientScript::POS_HEAD);
 Yii::app()->clientScript->registerScript('google maps','
 	console.log("Init map...");
 	function initialize() {
-        var mapOptions = {
-          center: new google.maps.LatLng(1.310118, 103.803778),
-          zoom: 13
-        };
-        var map = new google.maps.Map(document.getElementById("map-canvas"),
-            mapOptions);
+//        var mapOptions = {
+//          center: new google.maps.LatLng(1.310118, 103.803778),
+//          zoom: 13
+//        };
+//        var map = new google.maps.Map(document.getElementById("map-canvas"),
+//            mapOptions);
+
+	  var markers = [];
+	  var map = new google.maps.Map(document.getElementById("map-canvas"), {
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	  });
+
+	  var defaultBounds = new google.maps.LatLngBounds(
+		  new google.maps.LatLng(1.280118, 103.773778),
+		  new google.maps.LatLng(1.340118, 103.833778));
+	  map.fitBounds(defaultBounds);
+
+	  // Create the search box and link it to the UI element.
+	  var input = /** @type {HTMLInputElement} */(
+		  document.getElementById("pac-input"));
+	  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+	  var searchBox = new google.maps.places.SearchBox(
+		/** @type {HTMLInputElement} */(input));
+
+	  // Listen for the event fired when the user selects an item from the
+	  // pick list. Retrieve the matching places for that item.
+	  google.maps.event.addListener(searchBox, "places_changed", function() {
+		var places = searchBox.getPlaces();
+
+		if (places.length == 0) {
+		  return;
+		}
+		for (var i = 0, marker; marker = markers[i]; i++) {
+		  marker.setMap(null);
+		}
+
+		// For each place, get the icon, place name, and location.
+		markers = [];
+		var bounds = new google.maps.LatLngBounds();
+		for (var i = 0, place; place = places[i]; i++) {
+		  var image = {
+			url: place.icon,
+			size: new google.maps.Size(71, 71),
+			origin: new google.maps.Point(0, 0),
+			anchor: new google.maps.Point(17, 34),
+			scaledSize: new google.maps.Size(25, 25)
+		  };
+
+		  // Create a marker for each place.
+		  var marker = new google.maps.Marker({
+			map: map,
+			icon: image,
+			title: place.name,
+			position: place.geometry.location
+		  });
+
+		  markers.push(marker);
+
+		  bounds.extend(place.geometry.location);
+		}
+
+		map.fitBounds(bounds);
+	  });
+
+	  // Bias the SearchBox results towards places that are within the bounds of the
+	  // current map"s viewport.
+	  google.maps.event.addListener(map, "bounds_changed", function() {
+		var bounds = map.getBounds();
+		searchBox.setBounds(bounds);
+	  });
+
+
+
 		google.maps.event.addListener(map, "click", function(e) {
 			placeMarker(e.latLng, map);
 		  });
