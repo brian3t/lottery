@@ -27,8 +27,8 @@ class TotoResultController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view', 'get'),
+			array('allow', // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('index','view','get','getLatestResult','getByDate','getAll'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -39,7 +39,7 @@ class TotoResultController extends Controller
 				'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
 			),
-			array('deny',  // deny all users
+			array('deny', // deny all users
 				'users'=>array('*'),
 			),
 		);
@@ -56,15 +56,60 @@ class TotoResultController extends Controller
 		));
 	}
 
+
 	/**
-	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
+	 * Find list of results based on parameters
 	 */
-	public function actionGet($id)
+	public function actionGet()
 	{
-		echo CJavaScript::jsonEncode($this->loadModel($id));
+		$model=TotoResult::model();
+		$id=Yii::app()->getRequest()->getQuery('id');
+		$date=Yii::app()->getRequest()->getQuery('date');
+		$p=array();
+
+		if(!empty($id))
+		{
+			$p['id']=$id;
+		}
+		if(!empty($date))
+		{
+			$p['date']=$date;
+		}
+		$data=$model->findAllByAttributes($p);
+		$listOfLotteries=array();
+
+		foreach ($data as $d)
+		{
+			$winningGroups=$d['winningGroups'];
+
+			$wg=array_map(function ($arr)
+			{
+				return $arr->getAttributes();
+			},$winningGroups);
+			$dataArray=array_merge($d->getAttributes(),array('winning_groups'=>$wg));
+			array_push($listOfLotteries,$dataArray);
+		}
+		echo CJavaScript::jsonEncode($listOfLotteries);
 		Yii::app()->end();
 	}
+
+	/**
+	 * Get latest lottery result
+	 */
+	public function actionGetLatestResult()
+	{
+		$data=TotoResult::model()->lastRecord()->find();
+		$winningGroups=$data['winningGroups'];
+
+		$wg=array_map(function ($arr)
+		{
+			return $arr->getAttributes();
+		},$winningGroups);
+		$dataArray=array_merge($data->getAttributes(),array('winning_groups'=>$wg));
+		echo CJavaScript::jsonEncode($dataArray);
+		Yii::app()->end();
+	}
+
 
 	/**
 	 * Creates a new model.
@@ -77,9 +122,11 @@ class TotoResultController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if (isset($_POST['TotoResult'])) {
+		if(isset($_POST['TotoResult']))
+		{
 			$model->attributes=$_POST['TotoResult'];
-			if ($model->save()) {
+			if($model->save())
+			{
 				$this->redirect(array('view','id'=>$model->id));
 			}
 		}
@@ -101,9 +148,11 @@ class TotoResultController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if (isset($_POST['TotoResult'])) {
+		if(isset($_POST['TotoResult']))
+		{
 			$model->attributes=$_POST['TotoResult'];
-			if ($model->save()) {
+			if($model->save())
+			{
 				$this->redirect(array('view','id'=>$model->id));
 			}
 		}
@@ -120,15 +169,18 @@ class TotoResultController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		if (Yii::app()->request->isPostRequest) {
+		if(Yii::app()->request->isPostRequest)
+		{
 			// we only allow deletion via POST request
 			$this->loadModel($id)->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			if (!isset($_GET['ajax'])) {
+			if(!isset($_GET['ajax']))
+			{
 				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 			}
-		} else {
+		} else
+		{
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 		}
 	}
@@ -150,8 +202,9 @@ class TotoResultController extends Controller
 	public function actionAdmin()
 	{
 		$model=new TotoResult('search');
-		$model->unsetAttributes();  // clear any default values
-		if (isset($_GET['TotoResult'])) {
+		$model->unsetAttributes(); // clear any default values
+		if(isset($_GET['TotoResult']))
+		{
 			$model->attributes=$_GET['TotoResult'];
 		}
 
@@ -170,7 +223,8 @@ class TotoResultController extends Controller
 	public function loadModel($id)
 	{
 		$model=TotoResult::model()->findByPk($id);
-		if ($model===null) {
+		if($model===null)
+		{
 			throw new CHttpException(404,'The requested page does not exist.');
 		}
 		return $model;
@@ -182,7 +236,8 @@ class TotoResultController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if (isset($_POST['ajax']) && $_POST['ajax']==='toto-result-form') {
+		if(isset($_POST['ajax']) && $_POST['ajax']==='toto-result-form')
+		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}

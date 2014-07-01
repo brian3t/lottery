@@ -105,4 +105,24 @@ class TotoResult extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function scopes()
+	{
+		return array(
+			'lastRecord'=>array(
+//				'condition'=>'userid = '.Yii::app()->user->id.' AND status = 1',
+				'order'=>'date DESC',
+				'limit'=>1,
+			),
+		);
+	}
+
+//	public function behaviors() {
+//		return array(
+//			'EJsonBehavior'=>array(
+//				'class'=>'application.behaviors.EJsonBehavior'
+//			),
+//		);
+//	}
+
 }
