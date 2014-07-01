@@ -95,7 +95,7 @@ class TotoResultController extends Controller
 
 	/**
 	 * Find next result, based on date parameter
-	 * e.g. /getNext/date/2014-04-05 will return result on date 2014-04-06
+	 * e.g. /getNext/date/2014-04-05 will return result on date 2014-04-06 or later
 	 */
 	public function actionGetNext()
 	{
@@ -137,6 +137,54 @@ class TotoResultController extends Controller
 		echo CJavaScript::jsonEncode($dataArray);
 		Yii::app()->end();
 	}
+
+
+	/**
+	 * Find previous result, based on date parameter
+	 * e.g. /getPrevious/date/2014-04-05 will return result on date 2014-04-03 or earlier
+	 */
+
+	public function actionGetPrevious()
+	{
+		$model=TotoResult::model();
+		$date=Yii::app()->getRequest()->getQuery('date');
+		$p=array();
+
+		if(!empty($date))
+		{
+			$p['date']=$date;
+		} else
+		{
+			echo '{"error":"missing date input!"}';
+			Yii::app()->end();
+		}
+		$data=$model->findByAttributes($p);
+		if(!$data)
+		{
+			echo '{"error":"no result found on this date"}';
+			Yii::app()->end();
+		}
+		$foundId=$data->id;
+		$foundId=$foundId - 1;
+		$data=$model->findByAttributes(array('id'=>$foundId));
+		if(!$data)
+		{
+			echo '{"error":"No previous result found. Your date is oldest in our record."}';
+			Yii::app()->end();
+		}
+
+		$d=$data;
+		$winningGroups=$d['winningGroups'];
+
+		$wg=array_map(function ($arr)
+		{
+			return $arr->getAttributes();
+		},$winningGroups);
+		$dataArray=array_merge($d->getAttributes(),array('winning_groups'=>$wg));
+		echo CJavaScript::jsonEncode($dataArray);
+		Yii::app()->end();
+	}
+
 
 	/**
 	 * Get latest lottery result
