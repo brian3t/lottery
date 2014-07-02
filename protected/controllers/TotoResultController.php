@@ -105,21 +105,14 @@ class TotoResultController extends Controller
 
 		if(!empty($date))
 		{
-			$p['date']=$date;
+			$p[':date']=$date;
 		} else
 		{
 			echo '{"error":"missing date input!"}';
 			Yii::app()->end();
 		}
-		$data=$model->findByAttributes($p);
-		if(!$data)
-		{
-			echo '{"error":"no result found on this date"}';
-			Yii::app()->end();
-		}
-		$foundId=$data->id;
-		$foundId=$foundId + 1;
-		$data=$model->findByAttributes(array('id'=>$foundId));
+		$data=$model->findBySql('select * from toto_result where date > :date order by date asc limit 1;', $p);
+
 		if(!$data)
 		{
 			echo '{"error":"no next result found. Your date is latest"}';
