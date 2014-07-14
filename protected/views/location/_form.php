@@ -49,9 +49,9 @@ Yii::app()->getClientScript()->registerCssFile(bu().'/css/gmap.css');
 
 	<?php echo $form->textFieldControlGroup($model,'note',array('class'=>'col-md-6','maxlength'=>45)); ?>
 
-	<?php echo $form->textFieldControlGroup($model,'latitude',array('class'=>'col-md-6','disabled'=>'disabled')); ?>
+	<?php echo $form->textFieldControlGroup($model,'latitude',array('class'=>'col-md-6', 'label' => 'Latitude (type in or click on map to select)')); ?>
 
-	<?php echo $form->textFieldControlGroup($model,'longitude',array('class'=>'col-md-6','disabled'=>'disabled')); ?>
+	<?php echo $form->textFieldControlGroup($model,'longitude',array('class'=>'col-md-6', 'label' => 'Longitude (type in or click on map to select)')); ?>
 
 	<div class="form-actions">
 		<?php echo TbHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array(
@@ -154,10 +154,10 @@ Yii::app()->clientScript->registerScript('google maps','
       google.maps.event.addDomListener(window, "load", initialize);
       function placeMarker(position, map) {
 		  map.panTo(position);
-		  console.log("long: " + position.A);
-		  console.log("lat: " + position.k);
-		  $("#Location_latitude").val(position.k);
-		  $("#Location_longitude").val(position.A);
+		  console.log("long: " + position.lat());
+		  console.log("lat: " + position.lng());
+		  $("#Location_latitude").val(position.lat());
+		  $("#Location_longitude").val(position.lng());
 		}
 
 

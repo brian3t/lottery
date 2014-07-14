@@ -107,4 +107,8 @@ class WinningGroup extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function TotoResultDate(){
+		return "a";
+	}
 }

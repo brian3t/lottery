@@ -28,7 +28,7 @@ class WinningGroupController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view', 'get'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -177,4 +177,37 @@ class WinningGroupController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+	/**
+	 * Find list of results based on parameters
+	 */
+	public function actionGet()
+	{
+		$totoModel=TotoResult::model();
+		$totoId=Yii::app()->getRequest()->getQuery('totoId');
+		$totoDate=Yii::app()->getRequest()->getQuery('totoDate');
+		$p=array();
+
+		if(!empty($id))
+		{
+			$p['id']=$totoId;
+		}
+		if(!empty($date))
+		{
+			$p['date']=$totoDate;
+		}
+		$data=$totoModel->findByAttributes($p);
+
+			$winningGroups=$data->winningGroups;
+
+			$wg=array_map(function ($arr)
+			{
+				return $arr->getAttributes();
+			},$winningGroups);
+			$dataArray=array_merge($data->getAttributes(),array('winning_groups'=>$wg));
+		echo CJavaScript::jsonEncode(array('winning_groups'=>$wg));
+		Yii::app()->end();
+	}
+
+
 }

@@ -15,17 +15,18 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-    <p class="help-block">Fields with <span class="required">*</span> are required.</p>
+    <p class="help-block">Enter a winning group for a toto result. Fields with <span class="required">*</span> are required.</p>
 
     <?php echo $form->errorSummary($model); ?>
-
-            <?php echo $form->textFieldControlGroup($model,'group_tier',array('class'=>'col-md-6')); ?>
+			<label class="control-label" for="WinningGroup_toto_result_id">Toto Result</label>
+			<?php echo $form->dropDownList($model,'toto_result_id',CHtml::listData(TotoResult::model()->findAll(),'id','date'),array('class'=>'span3','prompt'=>'Select a TotoResult')); ?>
+			<br/>
+            <?php echo $form->dropDownListControlGroup($model,'group_tier',array('1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6'), array('class'=>'col-md-6')); ?>
 
             <?php echo $form->textFieldControlGroup($model,'amount',array('class'=>'col-md-6','maxlength'=>20)); ?>
 
             <?php echo $form->textFieldControlGroup($model,'num_of_winning_shares',array('class'=>'col-md-6')); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'toto_result_id',array('class'=>'col-md-6')); ?>
 
         <div class="form-actions">
         <?php echo TbHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array(

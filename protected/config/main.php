@@ -173,11 +173,11 @@ return array(
     //Choose Bootswatch skin.'none' means default bootstrap theme.See http://bootswatch.com/
     //Options for Bootstrap2:(make sure you have 'theme'=>'bootstrap2' in this file.)
     //none,amelia,cerulean,cosmo,cyborg,flatly,journal,readable,simplex,slate,spacelab,spruce,superhero,united
-    'bootswatch2_skin' => 'flatly',
+//    'bootswatch2_skin' => 'flatly',
 
     //Options for Bootstrap3:(no theme specified,default view files from protected/views are used)
     //none,amelia,cerulean,cosmo,cyborg,flatly,journal,readable,simplex,slate,spacelab,united
-    'bootswatch3_skin' => 'flatly',
+//    'bootswatch3_skin' => 'flatly',
 
     //render a form to try out layouts and skins.
     'render_switch_form' => false

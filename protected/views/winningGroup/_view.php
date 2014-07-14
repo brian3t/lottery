@@ -4,8 +4,8 @@
 ?>
 
 <div class="view">
+	<b><?php echo CHtml::link(CHtml::encode($data->getAttributeLabel('id') . ": "),array('view','id'=>$data->id));?></b>
 
-    	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->id),array('view','id'=>$data->id)); ?>
 	<br />
 
@@ -22,7 +22,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('toto_result_id')); ?>:</b>
-	<?php echo CHtml::encode($data->toto_result_id); ?>
+	<?php echo CHtml::encode(TotoResult::model()->findByPk($data->toto_result_id)->date); ?>
 	<br />
 
 

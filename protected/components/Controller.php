@@ -55,28 +55,28 @@ class Controller extends CController
 
     public function registerJs()
     {
-		cs()->registerScriptFile(bu() . '/libs/jquery/jquery.min.js', CClientScript::POS_BEGIN);
-		cs()->registerScriptFile('//code.jquery.com/jquery-1.11.0.min.js', CClientScript::POS_BEGIN);
-		cs()->registerScriptFile('//code.jquery.com/jquery-migrate-1.2.1.min.js', CClientScript::POS_BEGIN);
-        cs()->registerScriptFile(bu() . '/js/plugins.js', CClientScript::POS_END);
-        cs()->registerScriptFile(bu() . '/js/main.js', CClientScript::POS_END);
+//		cs()->registerScriptFile(bu() . '/libs/jquery/jquery.min.js', CClientScript::POS_BEGIN);
+//		cs()->registerScriptFile('//code.jquery.com/jquery-1.11.0.min.js', CClientScript::POS_BEGIN);
+//		cs()->registerScriptFile('//code.jquery.com/jquery-migrate-1.2.1.min.js', CClientScript::POS_BEGIN);
+//        cs()->registerScriptFile(bu() . '/js/plugins.js', CClientScript::POS_END);
+//        cs()->registerScriptFile(bu() . '/js/main.js', CClientScript::POS_END);
     }
 
     //custom application css
     public function registerCss()
     {
-        cs()->registerCssFile(bu() . '/css/main.css');
+//        cs()->registerCssFile(bu() . '/css/main.css');
     }
 
 
     public function getBootstrap3LayoutCssFileURL()
     {
-        return bu() . '/libs/bootstrap/examples/' . app()->layout . '/' . app()->layout . '.css';
+//        return bu() . '/libs/bootstrap/examples/' . app()->layout . '/' . app()->layout . '.css';
     }
 
     public function getBootstrap2LayoutCssFileURL()
     {
-        return bu() . '/yiistrap_assets/layouts/' . app()->layout . '.css';
+//        return bu() . '/yiistrap_assets/layouts/' . app()->layout . '.css';
     }
 
     //Choose a bootswatch skin optionally
@@ -86,12 +86,12 @@ class Controller extends CController
     {
 
         //bootstrap css
-        (app()->params['bootswatch3_skin'] == "none") ?
-            cs()->registerCssFile(bu() . '/libs/bootstrap/dist/css/bootstrap.min.css') :
-            cs()->registerCssFile(bu() . '/libs/bootswatch/' . app()->params['bootswatch3_skin'] . '/bootstrap.min.css');
+//        (app()->params['bootswatch3_skin'] == "none") ?
+//            cs()->registerCssFile(bu() . '/libs/bootstrap/dist/css/bootstrap.min.css') :
+//            cs()->registerCssFile(bu() . '/libs/bootswatch/' . app()->params['bootswatch3_skin'] . '/bootstrap.min.css');
 
         //bootstrap js
-        cs()->registerScriptFile(bu() . '/libs/bootstrap/dist/js/bootstrap.min.js', CClientScript::POS_END);
+//        cs()->registerScriptFile(bu() . '/libs/bootstrap/dist/js/bootstrap.min.js', CClientScript::POS_END);
     }
 
 

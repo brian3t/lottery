@@ -111,7 +111,7 @@ class TotoResultController extends Controller
 			echo '{"error":"missing date input!"}';
 			Yii::app()->end();
 		}
-		$data=$model->findBySql('select * from toto_result where date > :date order by date asc limit 1;', $p);
+		$data=$model->find(array('condition' => 'date > :date ;', 'params' => $p, 'select' => '*', 'limit' => 1));
 
 		if(!$data)
 		{
@@ -151,15 +151,13 @@ class TotoResultController extends Controller
 			echo '{"error":"missing date input!"}';
 			Yii::app()->end();
 		}
-		$data=$model->findByAttributes($p);
+		$data=$model->find(array('condition' => 'date < :date ;', 'params' => $p, 'select' => '*', 'limit' => 1));
+
 		if(!$data)
 		{
 			echo '{"error":"no result found on this date"}';
 			Yii::app()->end();
 		}
-		$foundId=$data->id;
-		$foundId=$foundId - 1;
-		$data=$model->findByAttributes(array('id'=>$foundId));
 		if(!$data)
 		{
 			echo '{"error":"No previous result found. Your date is oldest in our record."}';
