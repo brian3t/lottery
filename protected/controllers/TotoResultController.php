@@ -39,6 +39,10 @@ class TotoResultController extends Controller
 				'actions'=>array('admin','delete','admin'),
 				'roles'=>array('admin'),
 			),
+			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+				'actions'=>array('admin','delete','admin'),
+				'users'=>array('admin'),
+			),
 			array('deny', // deny all users
 				'users'=>array('*'),
 			),
