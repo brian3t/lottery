@@ -28,7 +28,7 @@ class TotoResultController extends Controller
 	{
 		return array(
 			array('allow', // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','get','getLatestResult','getByDate','getAll', 'getNext', 'getPrevious'),
+				'actions'=>array('index','view','get','getLatestResult','getByDate','getAll', 'getNext', 'getPrevious','admin'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
