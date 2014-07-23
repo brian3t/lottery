@@ -79,7 +79,8 @@ class TotoResultController extends Controller
 		{
 			$p['date']=$date;
 		}
-		$data=$model->findAllByAttributes($p);
+		$conditions = array('order' => 'date desc');
+		$data=$model->findAllByAttributes($p, $conditions);
 		$listOfLotteries=array();
 
 		foreach ($data as $d)
