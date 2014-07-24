@@ -270,7 +270,7 @@ $bu=Yii::app()->request->baseUrl;
 			<ul class="dropdown-menu">
 				<li><a href="#"><i class="icon-user"></i> <?=Yii::app()->user->name?> </a></li>
 				<li class="divider"></li>
-				<li><a href="user/logout"><i class="icon-key"></i> Log Out</a></li>
+				<li><a href="<?=$bu?>/user/logout"><i class="icon-key"></i> Log Out</a></li>
 			</ul>
 		</li>
 		<!-- END USER LOGIN DROPDOWN -->

@@ -28,7 +28,7 @@ class TotoResultController extends Controller
 	{
 		return array(
 			array('allow', // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','get','getLatestResult','getByDate','getAll', 'getNext', 'getPrevious','admin'),
+				'actions'=>array('index','view','get','getLatestResult','getByDate','getAll', 'getNext', 'getPrevious'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -36,12 +36,8 @@ class TotoResultController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','admin'),
+				'actions'=>array('admin','delete'),
 				'roles'=>array('admin'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','admin'),
-				'users'=>array('admin'),
 			),
 			array('deny', // deny all users
 				'users'=>array('*'),
@@ -156,7 +152,7 @@ class TotoResultController extends Controller
 			echo '{"error":"missing date input!"}';
 			Yii::app()->end();
 		}
-		$data=$model->find(array('condition' => 'date < :date ;', 'params' => $p, 'select' => '*', 'limit' => 1));
+		$data=$model->find('date < :date order by date desc',$p);
 
 		if(!$data)
 		{
