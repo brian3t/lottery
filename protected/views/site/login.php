@@ -38,7 +38,7 @@ $this->breadcrumbs = array(
             ),
 
         )); ?>
-        <div class="form-group">
+        <div class="control-group">
             <div class="col-lg-3 control-label">
                 <div>
                     <p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -50,7 +50,7 @@ $this->breadcrumbs = array(
                 </div>
             </div>
         </div>
-        <div class="form-group">
+        <div class="control-group">
             <?php echo $form->labelEx($model, 'username', array('class' => 'col-lg-3 control-label')); ?>
             <div class="col-lg-5">
                 <?php echo $form->textField($model, 'username', array('class' => 'form-control', 'placeholder' => 'Name')); ?>
@@ -59,16 +59,16 @@ $this->breadcrumbs = array(
                 </div>
             </div>
         </div>
-        <div class="form-group">
+        <div class="control-group">
             <?php echo $form->labelEx($model, 'password', array('class' => 'col-lg-3 control-label')); ?>
             <div class="col-lg-5">
-                <?php echo $form->textField($model, 'password', array('class' => 'form-control', 'placeholder' => 'Email')); ?>
+                <?php echo $form->passwordField($model, 'password', array('class' => 'form-control', 'placeholder' => 'Password')); ?>
                 <span class="help-block help-inline ">
                 <?php echo $form->error($model, 'password'); ?>
                     </span>
             </div>
         </div>
-        <div class="form-group">
+        <div class="control-group">
             <div class="col-lg-offset-3 col-lg-10">
                 <div class="checkbox">
                     <label>
