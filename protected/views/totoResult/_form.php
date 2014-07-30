@@ -41,6 +41,24 @@
 <!--            --><?php //echo $form->dateFieldControlGroup($model,'date_time',array('class'=>'col-md-6')); ?>
 
             <?php echo $form->textFieldControlGroup($model,'winning_numbers',array('class'=>'col-md-6','maxlength'=>800)); ?>
+	<div class="control-group">
+		<label class="control-label" for="TotoResult_date">Lottery jackpot date</label>
+		<div class="controls">
+			<div class="input-append">
+				<?php $this->widget('yiiwheels.widgets.datepicker.WhDatePicker', array(
+					'name' => 'TotoResult[jackpot_date]',
+					'id' => 'TotoResult_jackpot_date',
+					'pluginOptions' => array(
+						'format' => 'yyyy-mm-dd',
+						'type' => 'date',
+					),
+					'value' => $model->jackpot_date
+				));
+				?>
+				<span class="add-on"><icon class="icon-calendar"></icon></span>
+			</div>
+		</div>
+	</div>	<?php echo $form->textFieldControlGroup($model,'jackpot_result',array('class'=>'col-md-6','maxlength'=>800)); ?>
 
             <?php echo $form->textFieldControlGroup($model,'additional_winning_number',array('class'=>'col-md-6')); ?>
 

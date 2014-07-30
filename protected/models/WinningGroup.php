@@ -9,6 +9,7 @@
  * @property string $amount
  * @property integer $num_of_winning_shares
  * @property integer $toto_result_id
+ * @property string $winning_booths
  *
  * The followings are the available model relations:
  * @property Location[] $locations
@@ -35,9 +36,10 @@ class WinningGroup extends CActiveRecord
 			array('group_tier, toto_result_id', 'required'),
 			array('group_tier, num_of_winning_shares, toto_result_id', 'numerical', 'integerOnly'=>true),
 			array('amount', 'length', 'max'=>20),
+			array('winning_booths', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, group_tier, amount, num_of_winning_shares, toto_result_id', 'safe', 'on'=>'search'),
+			array('id, group_tier, amount, num_of_winning_shares, toto_result_id, winning_booths', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,6 +67,7 @@ class WinningGroup extends CActiveRecord
 			'amount' => 'Amount',
 			'num_of_winning_shares' => 'Num Of Winning Shares',
 			'toto_result_id' => 'Toto Result',
+			'winning_booths' => 'Winning Booths',
 		);
 	}
 
@@ -91,6 +94,7 @@ class WinningGroup extends CActiveRecord
 		$criteria->compare('amount',$this->amount,true);
 		$criteria->compare('num_of_winning_shares',$this->num_of_winning_shares);
 		$criteria->compare('toto_result_id',$this->toto_result_id);
+		$criteria->compare('winning_booths',$this->winning_booths,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -106,9 +110,5 @@ class WinningGroup extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
-	}
-
-	public function TotoResultDate(){
-		return "a";
 	}
 }

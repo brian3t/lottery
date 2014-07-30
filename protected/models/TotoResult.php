@@ -9,6 +9,8 @@
  * @property string $winning_numbers
  * @property integer $additional_winning_number
  * @property integer $draw_number
+ * @property string $jackpot_date
+ * @property string $jackpot_result
  *
  * The followings are the available model relations:
  * @property WinningGroup[] $winningGroups
@@ -32,11 +34,11 @@ class TotoResult extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('additional_winning_number, draw_number', 'numerical', 'integerOnly'=>true),
-			array('winning_numbers', 'length', 'max'=>800),
-			array('date', 'safe'),
+			array('winning_numbers, jackpot_result', 'length', 'max'=>800),
+			array('date, jackpot_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, date, winning_numbers, additional_winning_number, draw_number', 'safe', 'on'=>'search'),
+			array('id, date, winning_numbers, additional_winning_number, draw_number, jackpot_date, jackpot_result', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,6 +65,8 @@ class TotoResult extends CActiveRecord
 			'winning_numbers' => 'Winning Numbers',
 			'additional_winning_number' => 'Additional Winning Number',
 			'draw_number' => 'Draw Number',
+			'jackpot_date' => 'Jackpot Date',
+			'jackpot_result' => 'Jackpot Result',
 		);
 	}
 
@@ -89,6 +93,8 @@ class TotoResult extends CActiveRecord
 		$criteria->compare('winning_numbers',$this->winning_numbers,true);
 		$criteria->compare('additional_winning_number',$this->additional_winning_number);
 		$criteria->compare('draw_number',$this->draw_number);
+		$criteria->compare('jackpot_date',$this->jackpot_date,true);
+		$criteria->compare('jackpot_result',$this->jackpot_result,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -105,24 +111,4 @@ class TotoResult extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-
-	public function scopes()
-	{
-		return array(
-			'lastRecord'=>array(
-//				'condition'=>'userid = '.Yii::app()->user->id.' AND status = 1',
-				'order'=>'date DESC',
-				'limit'=>1,
-			),
-		);
-	}
-
-//	public function behaviors() {
-//		return array(
-//			'EJsonBehavior'=>array(
-//				'class'=>'application.behaviors.EJsonBehavior'
-//			),
-//		);
-//	}
-
 }

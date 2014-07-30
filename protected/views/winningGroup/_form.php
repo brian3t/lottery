@@ -26,6 +26,7 @@
             <?php echo $form->textFieldControlGroup($model,'amount',array('class'=>'col-md-6','maxlength'=>20)); ?>
 
             <?php echo $form->textFieldControlGroup($model,'num_of_winning_shares',array('class'=>'col-md-6')); ?>
+			<?php echo $form->textAreaControlGroup($model,'winning_booths',array('class'=>'col-md-6','rows'=>20)); ?>
 
 
         <div class="form-actions">

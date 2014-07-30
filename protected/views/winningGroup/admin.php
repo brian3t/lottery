@@ -13,6 +13,7 @@ $this->menu=array(
 	array('label'=>'Create WinningGroup', 'url'=>array('create')),
 );
 $b = Yii::app()->request->baseUrl;
+$tt = TotoResult::model();
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
@@ -43,6 +44,29 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 )); ?>
 </div><!-- search-form -->
 
+<!--	--><?php
+//	$this->widget('zii.widgets.grid.CGridView', array(
+//		'dataProvider'=>$dataProvider,
+//		'columns'=>array(
+//			'title',          // display the 'title' attribute
+//			'category.name',  // display the 'name' attribute of the 'category' relation
+//			'content:html',   // display the 'content' attribute as purified HTML
+//			array(            // display 'create_time' using an expression
+//				'name'=>'create_time',
+//				'value'=>'date("M j, Y", $data->create_time)',
+//			),
+//			array(            // display 'author.username' using an expression
+//				'name'=>'authorName',
+//				'value'=>'$data->author->username',
+//			),
+//			array(            // display a column with "view", "update" and "delete" buttons
+//				'class'=>'CButtonColumn',
+//			),
+//		),
+//	));
+//	?>
+
+
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'winning-group-grid',
 	'dataProvider'=>$model->search(),
@@ -52,7 +76,11 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'group_tier',
 		'amount',
 		'num_of_winning_shares',
-		'toto_result_id',
+		'winning_booths',
+		array(
+			'name' => 'toto_result_id',
+			'value' => 'TotoResult::model()->findByPk($data->toto_result_id)->date'
+		),
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),

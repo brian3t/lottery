@@ -183,7 +183,8 @@ class TotoResultController extends Controller
 	 */
 	public function actionGetLatestResult()
 	{
-		$data=TotoResult::model()->lastRecord()->find();
+//		$data=TotoResult::model()->lastRecord()->find();
+		$data = TotoResult::model()->findBySql('select * from toto_result where winning_numbers IS NOT NULL order by date DESC limit 1;');
 		$winningGroups=$data['winningGroups'];
 
 		$wg=array_map(function ($arr)

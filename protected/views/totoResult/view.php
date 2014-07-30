@@ -52,7 +52,11 @@ $this->menu=array(
 		,
 			'num_of_winning_shares' => array(
 				'name' => 'num_of_winning_shares',
-				'header' => 'Number of Winning Shares'
+				'header' => 'Num. of Winning Shares'
+			),
+			'winning_booths' => array(
+				'name' => 'winning_booths',
+				'header' => 'Winning Booths'
 			)
 		,array(
 				'class'=>'CButtonColumn'

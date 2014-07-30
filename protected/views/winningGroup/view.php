@@ -30,6 +30,7 @@ $this->menu=array(
 			'id',
 			'group_tier',
 			'amount',
+			'winning_booths',
 			'num_of_winning_shares',
 			'toto_result_id'=>array(
 				'label'=>'Toto Result Date',

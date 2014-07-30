@@ -308,10 +308,10 @@ $bu=Yii::app()->request->baseUrl;
 					<span class="arrow"></span>
 				</a>
 				<ul class="sub">
-					<li><a class="" href="<?=$bu?>/user">Users</a></li>
-					<li><a class="" href="<?=$bu?>/location">Locations</a></li>
-					<li><a class="" href="<?=$bu?>/totoResult">Toto Results</a></li>
-					<li><a class="" href="<?=$bu?>/winningGroup">Winning Groups</a></li>
+					<li><a class="" href="<?=$bu?>/user/admin">Users</a></li>
+					<li><a class="" href="<?=$bu?>/location/admin">Locations</a></li>
+					<li><a class="" href="<?=$bu?>/totoResult/admin">Toto Results</a></li>
+					<li><a class="" href="<?=$bu?>/winningGroup/admin">Winning Groups</a></li>
 				</ul>
 			</li>
 			<?php

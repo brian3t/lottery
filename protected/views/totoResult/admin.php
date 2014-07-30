@@ -51,6 +51,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'id',
 		'date',
 		'winning_numbers',
+		'jackpot_date',
+		'jackpot_result',
 		'additional_winning_number',
 		'draw_number',
 		array(

@@ -24,6 +24,8 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('toto_result_id')); ?>:</b>
 	<?php echo CHtml::encode(TotoResult::model()->findByPk($data->toto_result_id)->date); ?>
 	<br />
-
+	<b><?php echo CHtml::encode($data->getAttributeLabel('winning_booths')); ?>:</b>
+	<?php echo CHtml::encode($data->winning_booths); ?>
+	<br/>
 
 </div>
