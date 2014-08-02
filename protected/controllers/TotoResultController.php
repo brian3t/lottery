@@ -90,6 +90,7 @@ class TotoResultController extends Controller
 			$dataArray=array_merge($d->getAttributes(),array('winning_groups'=>$wg));
 			array_push($listOfLotteries,$dataArray);
 		}
+		if (sizeof($listOfLotteries) == 1){$listOfLotteries = $listOfLotteries[0];}
 		echo CJavaScript::jsonEncode($listOfLotteries);
 		Yii::app()->end();
 	}
