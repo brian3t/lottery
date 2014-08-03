@@ -42,7 +42,7 @@
 
             <?php echo $form->textFieldControlGroup($model,'winning_numbers',array('class'=>'col-md-6','maxlength'=>800)); ?>
 	<div class="control-group">
-		<label class="control-label" for="TotoResult_date">Lottery jackpot date</label>
+		<label class="control-label" for="TotoResult_date">Lottery jackpot date time</label>
 		<div class="controls">
 			<div class="input-append">
 				<?php $this->widget('yiiwheels.widgets.datetimepicker.WhDateTimePicker', array(
