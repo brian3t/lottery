@@ -92,11 +92,6 @@ class TotoResultController extends Controller
 //			$dataArray=array_merge($d->getAttributes(),array('winning_groups'=>$wg));
 				array_push($listOfLotteries,$d->date);
 			}
-
-			if(sizeof($listOfLotteries)==1)
-			{
-				$listOfLotteries=$listOfLotteries[0];
-			}
 		} else
 		{
 			foreach ($data as $d)
@@ -111,6 +106,10 @@ class TotoResultController extends Controller
 				$dataArray=array_merge($d->getAttributes(),array('winning_groups'=>$wg));
 				array_push($listOfLotteries,$dataArray);
 			}
+		}
+		if(sizeof($listOfLotteries)==1)
+		{
+			$listOfLotteries=$listOfLotteries[0];
 		}
 
 		echo CJavaScript::jsonEncode($listOfLotteries);

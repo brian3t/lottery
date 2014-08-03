@@ -27,7 +27,7 @@
 					'name' => 'TotoResult[date]',
 					'id' => 'TotoResult_date',
 					'pluginOptions' => array(
-						'format' => 'yyyy-mm-dd',
+						'format' => 'yyyy-MM-dd',
 						'type' => 'date',
 					),
 					'value' => $model->date
@@ -49,7 +49,7 @@
 					'name' => 'TotoResult[jackpot_date_time]',
 					'id' => 'TotoResult_jackpot_date_time',
 					'pluginOptions' => array(
-						'format' => 'yyyy-mm-dd hh:mm',
+						'format' => 'yyyy-MM-dd hh:mm:ss',
 //						'type' => 'date_time',
 					),
 					'value' => $model->jackpot_date_time
