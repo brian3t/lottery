@@ -28,7 +28,7 @@ class TotoResultController extends Controller
 	{
 		return array(
 			array('allow', // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','get','getLatestResult','getByDate','getAll', 'getNext', 'getPrevious'),
+				'actions'=>array('index','view','get','getLatestResult','getByDate','getAll','getNext','getPrevious'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -75,12 +75,14 @@ class TotoResultController extends Controller
 		{
 			$p['date']=$date;
 		}
-		$conditions = array('order' => 'date desc');
-		$data=$model->findAllByAttributes($p, $conditions);
+		$conditions=array('order'=>'date desc');
+		$data=$model->findAllByAttributes($p,$conditions);
 		$listOfLotteries=array();
 
-		foreach ($data as $d)
+		if(sizeof($p)==0)
 		{
+			foreach ($data as $d)
+			{
 //			$winningGroups=$d['winningGroups'];
 //
 //			$wg=array_map(function ($arr)
@@ -88,9 +90,29 @@ class TotoResultController extends Controller
 //				return $arr->getAttributes();
 //			},$winningGroups);
 //			$dataArray=array_merge($d->getAttributes(),array('winning_groups'=>$wg));
-			array_push($listOfLotteries,$d->date);
+				array_push($listOfLotteries,$d->date);
+			}
+
+			if(sizeof($listOfLotteries)==1)
+			{
+				$listOfLotteries=$listOfLotteries[0];
+			}
+		} else
+		{
+			foreach ($data as $d)
+			{
+
+				$winningGroups=$d['winningGroups'];
+
+				$wg=array_map(function ($arr)
+				{
+					return $arr->getAttributes();
+				},$winningGroups);
+				$dataArray=array_merge($d->getAttributes(),array('winning_groups'=>$wg));
+				array_push($listOfLotteries,$dataArray);
+			}
 		}
-		if (sizeof($listOfLotteries) == 1){$listOfLotteries = $listOfLotteries[0];}
+
 		echo CJavaScript::jsonEncode($listOfLotteries);
 		Yii::app()->end();
 	}
@@ -99,7 +121,8 @@ class TotoResultController extends Controller
 	 * Find next result, based on date parameter
 	 * e.g. /getNext/date/2014-04-05 will return result on date 2014-04-06 or later
 	 */
-	public function actionGetNext()
+	public
+	function actionGetNext()
 	{
 		$model=TotoResult::model();
 		$date=Yii::app()->getRequest()->getQuery('date');
@@ -113,7 +136,7 @@ class TotoResultController extends Controller
 			echo '{"error":"missing date input!"}';
 			Yii::app()->end();
 		}
-		$data=$model->find(array('condition' => 'date > :date ;', 'params' => $p, 'select' => '*', 'limit' => 1));
+		$data=$model->find(array('condition'=>'date > :date ;','params'=>$p,'select'=>'*','limit'=>1));
 
 		if(!$data)
 		{
@@ -139,7 +162,8 @@ class TotoResultController extends Controller
 	 * e.g. /getPrevious/date/2014-04-05 will return result on date 2014-04-03 or earlier
 	 */
 
-	public function actionGetPrevious()
+	public
+	function actionGetPrevious()
 	{
 		$model=TotoResult::model();
 		$date=Yii::app()->getRequest()->getQuery('date');
@@ -182,10 +206,11 @@ class TotoResultController extends Controller
 	/**
 	 * Get latest lottery result
 	 */
-	public function actionGetLatestResult()
+	public
+	function actionGetLatestResult()
 	{
 //		$data=TotoResult::model()->lastRecord()->find();
-		$data = TotoResult::model()->findBySql('select * from toto_result where winning_numbers IS NOT NULL order by date DESC limit 1;');
+		$data=TotoResult::model()->findBySql('select * from toto_result where winning_numbers IS NOT NULL order by date DESC limit 1;');
 		$winningGroups=$data['winningGroups'];
 
 		$wg=array_map(function ($arr)
@@ -202,7 +227,8 @@ class TotoResultController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public
+	function actionCreate()
 	{
 		$model=new TotoResult;
 
@@ -228,7 +254,8 @@ class TotoResultController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionUpdate($id)
+	public
+	function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
 
@@ -254,7 +281,8 @@ class TotoResultController extends Controller
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
 	 * @param integer $id the ID of the model to be deleted
 	 */
-	public function actionDelete($id)
+	public
+	function actionDelete($id)
 	{
 		if(Yii::app()->request->isPostRequest)
 		{
@@ -275,7 +303,8 @@ class TotoResultController extends Controller
 	/**
 	 * Lists all models.
 	 */
-	public function actionIndex()
+	public
+	function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('TotoResult');
 		$this->render('index',array(
@@ -286,7 +315,8 @@ class TotoResultController extends Controller
 	/**
 	 * Manages all models.
 	 */
-	public function actionAdmin()
+	public
+	function actionAdmin()
 	{
 		$model=new TotoResult('search');
 		$model->unsetAttributes(); // clear any default values
@@ -307,7 +337,8 @@ class TotoResultController extends Controller
 	 * @return TotoResult the loaded model
 	 * @throws CHttpException
 	 */
-	public function loadModel($id)
+	public
+	function loadModel($id)
 	{
 		$model=TotoResult::model()->findByPk($id);
 		if($model===null)
@@ -321,7 +352,8 @@ class TotoResultController extends Controller
 	 * Performs the AJAX validation.
 	 * @param TotoResult $model the model to be validated
 	 */
-	protected function performAjaxValidation($model)
+	protected
+	function performAjaxValidation($model)
 	{
 		if(isset($_POST['ajax']) && $_POST['ajax']==='toto-result-form')
 		{
