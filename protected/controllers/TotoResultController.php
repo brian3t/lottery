@@ -81,14 +81,14 @@ class TotoResultController extends Controller
 
 		foreach ($data as $d)
 		{
-			$winningGroups=$d['winningGroups'];
-
-			$wg=array_map(function ($arr)
-			{
-				return $arr->getAttributes();
-			},$winningGroups);
-			$dataArray=array_merge($d->getAttributes(),array('winning_groups'=>$wg));
-			array_push($listOfLotteries,$dataArray);
+//			$winningGroups=$d['winningGroups'];
+//
+//			$wg=array_map(function ($arr)
+//			{
+//				return $arr->getAttributes();
+//			},$winningGroups);
+//			$dataArray=array_merge($d->getAttributes(),array('winning_groups'=>$wg));
+			array_push($listOfLotteries,$d->date);
 		}
 		if (sizeof($listOfLotteries) == 1){$listOfLotteries = $listOfLotteries[0];}
 		echo CJavaScript::jsonEncode($listOfLotteries);
