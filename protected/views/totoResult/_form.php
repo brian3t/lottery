@@ -45,17 +45,16 @@
 		<label class="control-label" for="TotoResult_date">Lottery jackpot date</label>
 		<div class="controls">
 			<div class="input-append">
-				<?php $this->widget('yiiwheels.widgets.datepicker.WhDatePicker', array(
-					'name' => 'TotoResult[jackpot_date]',
-					'id' => 'TotoResult_jackpot_date',
+				<?php $this->widget('yiiwheels.widgets.datetimepicker.WhDateTimePicker', array(
+					'name' => 'TotoResult[jackpot_date_time]',
+					'id' => 'TotoResult_jackpot_date_time',
 					'pluginOptions' => array(
-						'format' => 'yyyy-mm-dd',
-						'type' => 'date',
+						'format' => 'yyyy-mm-dd hh:mm',
+//						'type' => 'date_time',
 					),
-					'value' => $model->jackpot_date
+					'value' => $model->jackpot_date_time
 				));
 				?>
-				<span class="add-on"><icon class="icon-calendar"></icon></span>
 			</div>
 		</div>
 	</div>	<?php echo $form->textFieldControlGroup($model,'jackpot_result',array('class'=>'col-md-6','maxlength'=>800)); ?>

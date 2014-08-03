@@ -9,7 +9,7 @@
  * @property string $winning_numbers
  * @property integer $additional_winning_number
  * @property integer $draw_number
- * @property string $jackpot_date
+ * @property string $jackpot_date_time
  * @property string $jackpot_result
  *
  * The followings are the available model relations:
@@ -35,10 +35,10 @@ class TotoResult extends CActiveRecord
 		return array(
 			array('additional_winning_number, draw_number', 'numerical', 'integerOnly'=>true),
 			array('winning_numbers, jackpot_result', 'length', 'max'=>800),
-			array('date, jackpot_date', 'safe'),
+			array('date, jackpot_date_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, date, winning_numbers, additional_winning_number, draw_number, jackpot_date, jackpot_result', 'safe', 'on'=>'search'),
+			array('id, date, winning_numbers, additional_winning_number, draw_number, jackpot_date_time, jackpot_result', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,7 +65,7 @@ class TotoResult extends CActiveRecord
 			'winning_numbers' => 'Winning Numbers',
 			'additional_winning_number' => 'Additional Winning Number',
 			'draw_number' => 'Draw Number',
-			'jackpot_date' => 'Jackpot Date',
+			'jackpot_date_time' => 'Jackpot Date Time',
 			'jackpot_result' => 'Jackpot Result',
 		);
 	}
@@ -93,7 +93,7 @@ class TotoResult extends CActiveRecord
 		$criteria->compare('winning_numbers',$this->winning_numbers,true);
 		$criteria->compare('additional_winning_number',$this->additional_winning_number);
 		$criteria->compare('draw_number',$this->draw_number);
-		$criteria->compare('jackpot_date',$this->jackpot_date,true);
+		$criteria->compare('jackpot_date_time',$this->jackpot_date_time,true);
 		$criteria->compare('jackpot_result',$this->jackpot_result,true);
 
 		return new CActiveDataProvider($this, array(

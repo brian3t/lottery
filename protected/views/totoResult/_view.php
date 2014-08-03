@@ -17,8 +17,8 @@
 	<?php echo CHtml::encode($data->winning_numbers); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('jackpot_date')); ?>:</b>
-	<?php echo CHtml::encode($data->jackpot_date); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('jackpot_date_time')); ?>:</b>
+	<?php echo CHtml::encode($data->jackpot_date_time); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('jackpot_result')); ?>:</b>

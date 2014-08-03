@@ -28,6 +28,7 @@ $this->menu=array(
 		'data'=>$model,
 		'attributes'=>array(
 			'date',
+			'jackpot_result',
 			'winning_numbers',
 			'additional_winning_number',
 			'draw_number',

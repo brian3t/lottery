@@ -16,7 +16,7 @@
                     <?php echo $form->textFieldControlGroup($model,'date',array('class'=>'col-md-6')); ?>
 
 	<?php echo $form->textFieldControlGroup($model,'winning_numbers',array('class'=>'col-md-6','maxlength'=>800)); ?>
-	<?php echo $form->dateFieldControlGroup($model,'jackpot_date',array('class'=>'col-md-6','maxlength'=>800)); ?>
+	<?php echo $form->dateFieldControlGroup($model,'jackpot_date_time',array('class'=>'col-md-6','maxlength'=>800)); ?>
 	<?php echo $form->textFieldControlGroup($model,'jackpot_result',array('class'=>'col-md-6','maxlength'=>800)); ?>
 
                     <?php echo $form->textFieldControlGroup($model,'additional_winning_number',array('class'=>'col-md-6')); ?>
