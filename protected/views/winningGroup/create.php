@@ -15,7 +15,6 @@ array('label'=>'List WinningGroup', 'url'=>array('index')),
 array('label'=>'Manage WinningGroup', 'url'=>array('admin')),
 );
 
-$model->toto_result_id = (!empty($_GET['toto_result_id'])?$_GET['toto_result_id']:null);
 ?>
 
 <h1>Create WinningGroup</h1>

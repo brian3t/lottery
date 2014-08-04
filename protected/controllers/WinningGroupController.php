@@ -28,7 +28,7 @@ class WinningGroupController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view', 'get'),
+				'actions'=>array('index','view', 'get','batchUpdate'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -70,8 +70,8 @@ class WinningGroupController extends Controller
 		if (isset($_POST['WinningGroup'])) {
 			$model->attributes=$_POST['WinningGroup'];
 			if ($model->save()) {
-				if (!empty($_GET['toto_result_id'])){
-					$this->redirect(array('totoResult/view','id' => $_GET['toto_result_id']));
+				if (!empty($_GET['totoResultId'])){
+					$this->redirect(array('totoResult/view','id' => $_GET['totoResultId']));
 				}
 				else{
 					$this->redirect(array('view','id'=>$model->id));
@@ -79,6 +79,7 @@ class WinningGroupController extends Controller
 			}
 		}
 
+		$model->toto_result_id = app()->getRequest()->getQuery('totoResultId');
 		$this->render('create',array(
 			'model'=>$model,
 		));
@@ -212,6 +213,66 @@ class WinningGroupController extends Controller
 			$dataArray=array_merge($data->getAttributes(),array('winning_groups'=>$wg));
 		echo CJavaScript::jsonEncode(array('winning_groups'=>$wg));
 		Yii::app()->end();
+	}
+
+	public function getItemsToUpdate() {
+		// Create an empty list of records
+		$items = array();
+
+		// Iterate over each item from the submitted form
+		if (isset($_POST['WinningGroup']) && is_array($_POST['Item'])) {
+			foreach ($_POST['WinningGroup'] as $item) {
+				// If item id is available, read the record from database
+				if ( array_key_exists('id', $item) ){
+					$items[] = WinningGroup::model()->findByPk($item['id']);
+				}
+				// Otherwise create a new record
+				else {
+					$items[] = new WinningGroup();
+				}
+			}
+		}
+		return $items;
+	}
+
+	public function actionBatchUpdate()
+	{
+		$item = new WinningGroup();
+		$toto_result_id = app()->getRequest()->getQuery('totoResultId');
+		$p = array();
+		if (!empty($toto_result_id)){
+			$p['toto_result_id'] = $toto_result_id;
+		}
+		$items=WinningGroup::model()->findAllByAttributes($p);
+
+
+		if(isset($_POST['WinningGroup']))
+		{
+
+			$valid=true;
+			foreach($items as $i=>$item)
+			{
+				if(isset($_POST['WinningGroup'][$i]))
+
+					$item->attributes=$_POST['WinningGroup'][$i];
+				$valid=$item->validate() && $valid;
+				if($valid)$item->save();
+			}
+			if($valid){
+				// all items are valid
+				// redirect to the parent totoresult
+				$this->redirect(array('totoResult/view','id'=>$items[0]->toto_result_id));
+			}
+			else{
+				throw new CHttpException(500,'Error. Could not save winning groups in batch');
+			}
+
+		}
+
+		// displays the view to collect tabular input
+		$this->render('batchUpdate',array(
+			'items'=>$items));
+
 	}
 
 

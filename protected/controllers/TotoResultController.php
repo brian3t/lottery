@@ -226,8 +226,7 @@ class TotoResultController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public
-	function actionCreate()
+	public function actionCreate()
 	{
 		$model=new TotoResult;
 
@@ -239,6 +238,13 @@ class TotoResultController extends Controller
 			$model->attributes=$_POST['TotoResult'];
 			if($model->save())
 			{
+				//create six winning groups
+				for ($i = 1; $i <=6; $i++){
+					$wg = new WinningGroup;
+					$wg->toto_result_id = $model->id;
+					$wg->group_tier = strval($i);
+					$wg->save();
+				}
 				$this->redirect(array('view','id'=>$model->id));
 			}
 		}
