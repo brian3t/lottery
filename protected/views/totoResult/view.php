@@ -88,7 +88,7 @@ $this->menu=array(
 			<li class="list-group-item"><a
 					href="<?= Yii::app()->getBaseUrl() ?>/<?= get_class($model) ?>/admin">Manage <?= get_class($model) ?>s</a></li>
 			<li class="list-group-item"><a
-					href="<?= Yii::app()->getBaseUrl() ?>/WinningGroup/create">Create Winning Group</a></li>
+					href="<?= Yii::app()->getBaseUrl() ?>/WinningGroup/create/toto_result_id/<?=$model->id?>">Create Winning Group For this Toto Result</a></li>
 		</ul>
 	</div>
 </div>

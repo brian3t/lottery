@@ -70,7 +70,12 @@ class WinningGroupController extends Controller
 		if (isset($_POST['WinningGroup'])) {
 			$model->attributes=$_POST['WinningGroup'];
 			if ($model->save()) {
-				$this->redirect(array('view','id'=>$model->id));
+				if (!empty($_GET['toto_result_id'])){
+					$this->redirect(array('totoResult/view','id' => $_GET['toto_result_id']));
+				}
+				else{
+					$this->redirect(array('view','id'=>$model->id));
+				}
 			}
 		}
 
