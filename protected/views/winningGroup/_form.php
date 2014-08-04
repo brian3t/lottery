@@ -19,7 +19,7 @@
 
     <?php echo $form->errorSummary($model); ?>
 			<label class="control-label" for="WinningGroup_toto_result_id">Toto Result</label>
-			<?php echo $form->dropDownList($model,'toto_result_id',CHtml::listData(TotoResult::model()->findAll(),'id','date'),array('class'=>'span3','prompt'=>'Select a TotoResult')); ?>
+			<?php echo $form->dropDownList($model,'toto_result_id',CHtml::listData(TotoResult::model()->findAll(array('order'=>'date desc')),'id','date'),array('class'=>'span3','prompt'=>'Select a TotoResult')); ?>
 			<br/>
             <?php echo $form->dropDownListControlGroup($model,'group_tier',array('1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6'), array('class'=>'col-md-6')); ?>
 
