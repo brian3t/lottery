@@ -29,7 +29,7 @@
 	<link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet"/>
 	<link href="/assets/css/style.css" rel="stylesheet"/>
 	<link href="/assets/css/style_responsive.css" rel="stylesheet"/>
-	<link href="/assets/css/style_default.css" rel="stylesheet" id="style_color"/>
+	<link href="/assets/css/style_grey.css" rel="stylesheet" id="style_color"/>
 	<!--	<link href="#" rel="stylesheet" id="style_metro"/>-->
 	<link href="/assets/fancybox/source/jquery.fancybox.css" rel="stylesheet"/>
 	<link rel="stylesheet" type="text/css" href="/assets/gritter/css/jquery.gritter.css"/>
