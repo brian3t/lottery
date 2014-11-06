@@ -1,5 +1,5 @@
 ﻿# Lottery App
-version 0.3
+version 1.4
 By [Tri Nguyen]
 
 ## Overview
@@ -10,3 +10,6 @@ Features:
 
 - Check daily Toto result
 - Check Winning Shares and WInning Tickets Sold
+
+This API is being used for TOTO SG iOS app
+https://itunes.apple.com/us/app/toto-sg/id909059850?ls=1&mt=8
