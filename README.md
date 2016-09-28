@@ -14,7 +14,6 @@ Features:
 This API is being used for TOTO SG iOS app
 https://itunes.apple.com/us/app/toto-sg/id909059850?ls=1&mt=8
 
-API access: http://usvsolutions.com/lottery/
-Contact ngxtri{{at}}gmail.com for login account, or sign up with your email.
+API access is available, please contact ngxtri{{at}}gmail.com for login account, or sign up with your email.
 
 Brian Tri.
