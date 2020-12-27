@@ -36,13 +36,6 @@ $this->breadcrumbs = array(
 
         <div class="control-group">
             <div class="controls">
-                <?php if ($model->getRequireCaptcha()) : ?>
-                    <?php $this->widget('application.extensions.recaptcha.EReCaptcha',
-                        array('model' => $model, 'attribute' => 'verify_code',
-                            'theme' => 'red', 'language' => 'en',
-                            'publicKey' => Yii::app()->params['recaptcha_public_key']));?>
-                    <?php echo CHtml::error($model, 'verify_code'); ?>
-                <?php endif; ?>
             </div>
         </div>
         <?php echo TbHtml::formActions(array(

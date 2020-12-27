@@ -100,9 +100,9 @@ return array(
         'db' => (!APP_DEPLOYED) ?
             array( //LOCALHOST
                 'class' => 'CDbConnection',
-                'connectionString' => 'mysql:host=localhost;dbname=mot_lot',
-                'username' => 'mot_lot',
-                'password' => 'tomTrapok)1',
+                'connectionString' => 'mysql:host=192.168.1.9;dbname=lot',
+                'username' => 'lot',
+                'password' => 'lTrapok)1',
                 'charset' => 'UTF8',
                 'tablePrefix' => '', // even empty table prefix required!!!
                 'emulatePrepare' => true,
@@ -115,9 +115,9 @@ return array(
 			):
         array(       //SERVER
             'class' => 'CDbConnection',
-                              'connectionString' => 'mysql:host=localhost;dbname=mot_lot',
-                               'username' => 'mot_lot',
-                               'password' => 'tomTrapok)1',
+                              'connectionString' => 'mysql:host=localhost;dbname=lot',
+                               'username' => 'lot',
+                               'password' => 'lTrapok)1',
                                'charset' => 'UTF8',
                                'tablePrefix' => '',
                                'emulatePrepare' => true,
@@ -136,9 +136,7 @@ return array(
 			'routes'=>array(
 				array(
 					'class'=>'CFileLogRoute',
-					'levels'=>'trace',
-					'categories'=>'system.db.*',
-					'logFile'=>'sql.log',
+					'levels'=>'error, warning, info',
 				),
         // uncomment the following to show log messages on web pages
         /*
@@ -162,13 +160,10 @@ return array(
     // application-level parameters that can be accessed
     // using Yii::app()->params['paramName']
     'params' => array(
-    'fromEmail' => 'tri@usvsolutions.com',
-    'replyEmail' => 'tri@usvsolutions.com',
-    'myEmail' => 'tri@usvsolutions.com',
-    'gmail_password' => 'trapok)1',
-    'recaptcha_private_key' => '6LfQLPUSAAAAALJcHwBhQ1LHwtfw2erkcXWGz7gf', // captcha will not work without these keys!
-    'recaptcha_public_key' => '6LfQLPUSAAAAAJM7xqeeeeOUJsvkW3_s3YC3NRuj', //http://www.google.com/recaptcha
-    'contactRequireCaptcha' => true,
+    'fromEmail' => 'someids@gmail.com',
+    'replyEmail' => 'someids@gmail.com',
+    'myEmail' => 'someids@gmail.com',
+    'gmail_password' => 'sTrapok02',
 
     //Choose Bootswatch skin.'none' means default bootstrap theme.See http://bootswatch.com/
     //Options for Bootstrap2:(make sure you have 'theme'=>'bootstrap2' in this file.)

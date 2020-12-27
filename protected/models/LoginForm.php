@@ -38,7 +38,6 @@ class LoginForm extends CFormModel {
 			array('password', 'length', 'max' => User::PASSWORD_MAX, 'min' => User::PASSWORD_MIN),
 			array('password', 'authenticate'),
 			array('rememberMe', 'boolean'),
-           array('verify_code', 'validateCaptcha'),
 		);
 	}
 
@@ -82,18 +81,6 @@ class LoginForm extends CFormModel {
 	}
 
 
-	/**
-	 * Validates captcha code
-	 * @param $attribute
-	 * @param $params
-	 */
-	public function validateCaptcha($attribute, $params) {
-		if ($this->getRequireCaptcha())
-			CValidator::createValidator('application.extensions.recaptcha.EReCaptchaValidator',
-                                                                        $this, $attribute
-                                                                         ,array(  'privateKey'=>Yii::app()->params['recaptcha_private_key']))
-                                                                        ->validate($this);
-	}
 
 	/**
 	 * Login
@@ -125,12 +112,5 @@ class LoginForm extends CFormModel {
 		return $this->_user;
 	}
 
-	/**
-	 * Returns whether it requires captcha or not
-	 * @return bool
-	 */
-	public function getRequireCaptcha() {
-		return ($user = $this->user) !== null && $user->login_attempts >= self::MAX_LOGIN_ATTEMPTS;
-	}
 
 }

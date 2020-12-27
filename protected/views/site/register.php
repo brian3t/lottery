@@ -126,19 +126,6 @@ $this->breadcrumbs=array(
 						</div>
 
 						<div class="control-group">
-							<label for="RegisterForm_verify_code" class="control-label">Captcha</label>								<input name="RegisterForm[verify_code]" id="RegisterForm_verify_code" type="hidden">
-							<script type="text/javascript" src="http://api.recaptcha.net/challenge?k=6LfQLPUSAAAAAJM7xqeeeeOUJsvkW3_s3YC3NRuj"></script><script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha.js"></script><div id="recaptcha_widget_div" style="" class=" recaptcha_nothad_incorrect_sol recaptcha_isnot_showing_audio"><div id="recaptcha_area"> </div></div><script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha.js"></script><div id="recaptcha_widget_div" style="display:none"></div><div id="recaptcha_widget_div" class=" recaptcha_nothad_incorrect_sol recaptcha_isnot_showing_audio controls"><div id="recaptcha_area">
-								</div></div>
-
-							<noscript>
-								&amp;lt;iframe src="http://api.recaptcha.net/noscript?k=6LfQLPUSAAAAAJM7xqeeeeOUJsvkW3_s3YC3NRuj" height="300" width="500" frameborder="0"&amp;gt;&amp;lt;/iframe&amp;gt;&amp;lt;br/&amp;gt;
-								&amp;lt;textarea name="recaptcha_challenge_field" rows="3" cols="40"&amp;gt;&amp;lt;/textarea&amp;gt;
-								&amp;lt;input type="hidden" name="recaptcha_response_field" value="manual_challenge"/&amp;gt;
-							</noscript>								<div class="help-inline">
-							</div>
-						</div>
-
-						<div class="control-group">
 							<div class="col-lg-offset-3 col-lg-10">
 								<?php echo CHtml::submitButton('Sign Up',array('class'=>'btn btn-primary btn-lg')); ?>
 							</div>

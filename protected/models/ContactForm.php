@@ -23,23 +23,8 @@ class ContactForm extends CFormModel
 			array('name, email, subject, body', 'required'),
 			// email has to be a valid email address
 			array('email', 'email'),
-			// verifyCode needs to be entered correctly
-            array('verify_code', 'validateCaptcha'),
 		);
 	}
-
-    public function validateCaptcha($attribute, $params) {
-    		if ($this->getRequireCaptcha())
-    			CValidator::createValidator('application.extensions.recaptcha.EReCaptchaValidator',
-                                                                            $this, $attribute
-                                                                             ,array(  'privateKey'=>Yii::app()->params['recaptcha_private_key']))
-                                                                            ->validate($this);
-    	}
-
-
-    public function getRequireCaptcha() {
-   	return Yii::app()->params['contactRequireCaptcha'];
-   	}
 
 	/**
 	 * Declares customized attribute labels.

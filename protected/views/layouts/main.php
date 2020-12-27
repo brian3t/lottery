@@ -302,18 +302,11 @@ $bu=Yii::app()->request->baseUrl;
 					<i class="icon-home"></i> Home
 				</a>
 			</li>
-			<li class="has-sub">
-				<a href="javascript:;" class="">
-					<i class="icon-bookmark-empty"></i> Manage
-					<span class="arrow"></span>
-				</a>
-				<ul class="sub">
-					<li><a class="" href="<?=$bu?>/user/admin">Users</a></li>
-					<li><a class="" href="<?=$bu?>/location/admin">Locations</a></li>
-					<li><a class="" href="<?=$bu?>/totoResult/admin">Toto Results</a></li>
-					<li><a class="" href="<?=$bu?>/winningGroup/admin">Winning Groups</a></li>
-				</ul>
-			</li>
+      <li><a class="" href="<?=$bu?>/user/admin">Users</a></li>
+      <li><a class="" href="<?=$bu?>/location/admin">Locations</a></li>
+      <li><a class="" href="<?=$bu?>/totoResult/admin">Toto Results</a></li>
+      <li><a class="" href="<?=$bu?>/winningGroup/admin">Winning Groups</a></li>
+
 			<?php
 			if(Yii::app()->user->isGuest):
 				?>

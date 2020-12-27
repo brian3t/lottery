@@ -37,14 +37,6 @@ Yii::import('bootstrap.widgets.input.*');
                                        class="help-inline error"></span></label></div>
     </div>-->
 
-    <?php if ($model->getRequireCaptcha()) : ?>
-     <?php $this->widget('application.extensions.recaptcha.EReCaptcha',
-        array('model'=>$user, 'attribute'=>'verify_code',
-              'theme'=>'red', 'language'=>'en',
-              'publicKey'=>Yii::app()->params['recaptcha_public_key'] ));?>
-    <?php echo CHtml::error($model, 'verify_code'); ?>
-    <?php endif; ?>
-
     <?php echo TbHtml::formActions(array(
         TbHtml::submitButton('Submit', array('color' => TbHtml::BUTTON_COLOR_PRIMARY)),
         TbHtml::resetButton('Reset'),

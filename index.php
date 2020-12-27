@@ -12,7 +12,7 @@
  * @version 2.0.0
  */
 defined('BACKEND') or define('BACKEND',false);
-defined('LOCAL_DOMAIN') or define('LOCAL_DOMAIN','localhost');
+defined('LOCAL_DOMAIN') or define('LOCAL_DOMAIN','usv');
 define('CURRENT_ACTIVE_DOMAIN', $_SERVER['HTTP_HOST']);
 defined('APP_DEPLOYED') or define('APP_DEPLOYED',!(CURRENT_ACTIVE_DOMAIN == LOCAL_DOMAIN));
 defined('DS') or define('DS',DIRECTORY_SEPARATOR);
