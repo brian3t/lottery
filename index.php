@@ -19,9 +19,9 @@ defined('DS') or define('DS',DIRECTORY_SEPARATOR);
 
 
 //Local Framework Path
-$yii=(!APP_DEPLOYED)?dirname(__FILE__).DS.'frameworks'.DS .'yii_1.1.14'.DS .'framework'.DS .'yii.php':
+$yii=(!APP_DEPLOYED)?dirname(__FILE__).DS.'frameworks'.DS .'yii_1.1.25'.DS .'framework'.DS .'yii.php':
 //Server framework Path
-dirname(__FILE__).DS.'frameworks'.DS .'yii_1.1.14'.DS .'framework'.DS .'yii.php';
+dirname(__FILE__).DS.'frameworks'.DS .'yii_1.1.25'.DS .'framework'.DS .'yii.php';
 
 
 $config=dirname(__FILE__).'/protected/config/main.php';

@@ -16,4 +16,7 @@ https://itunes.apple.com/us/app/toto-sg/id909059850?ls=1&mt=8
 
 API access is available, please contact ngxtri{{at}}gmail.com for login account, or sign up with your email.
 
-Brian Tri.
+Brian Nguyen.
+
+##Set up:
+Copy assets folder to .
