@@ -329,15 +329,15 @@ function obfuscateEmail($address)
 
 	for ($j = 0; $j < strlen($address); $j++)
 	{
-		if (strpos($cipher, $address{$j}) == -1)
+		if (strpos($cipher, $address[$j]) == -1)
 		{
-			$chr = $address{$j};
+			$chr = $address[$j];
 			$coded .= $chr;
 		}
 		else
 		{
-			$chr = (strpos($cipher, $address{$j}) + $shift) % strlen($cipher);
-			$coded .= $cipher{$chr};
+			$chr = (strpos($cipher, $address[$j]) + $shift) % strlen($cipher);
+			$coded .= $cipher[$chr];
 		}
 	}
 
