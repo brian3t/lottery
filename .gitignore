@@ -1,6 +1,6 @@
-assets
-assets/**
+./assets/**
 .idea
 protected/runtime/**
 protected/runtime/sql.log
 protected/runtime/*
+/assets/
