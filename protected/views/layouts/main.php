@@ -165,7 +165,7 @@ $bu=Yii::app()->request->baseUrl;
 									<span class="time">Just Now</span>
 									</span>
 									<span class="message">
-									Vivamus sed auctor nibh congue nibh.
+									New lottery result updated.
 									</span>
 				</a>
 			</li>
@@ -177,7 +177,7 @@ $bu=Yii::app()->request->baseUrl;
 									<span class="time">16 mins</span>
 									</span>
 									<span class="message">
-									Vivamus sed auctor nibh congue.
+									Entered new location in City Hall.
 									</span>
 				</a>
 			</li>
@@ -189,7 +189,7 @@ $bu=Yii::app()->request->baseUrl;
 									<span class="time">2 hrs</span>
 									</span>
 									<span class="message">
-									Vivamus sed auctor nibh congue.
+									User activation pending for 3 days.
 									</span>
 				</a>
 			</li>
