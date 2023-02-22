@@ -36,10 +36,10 @@ class UserIdentity extends CUserIdentity {
 			$this->username =  $user->username;
 
 			$this->setState('vkey', $user->validation_key);
-            $this->setState('roles', $user->roles);
-			if ($user->roles === ''){
+//            $this->setState('roles', $user->roles);
+//			if ($user->roles === ''){
 				$this->setState('roles', '@'); //default to '@' for logged in users
-			}
+//			}
 
 			$this->errorCode = self::ERROR_NONE;
 		}

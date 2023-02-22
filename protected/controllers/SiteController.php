@@ -118,7 +118,7 @@ class SiteController extends Controller
                         Yii::app()->user->setFlash('success', $msg);
                         $this->redirect(bu() . '/site/login');
                     } else {
-                        $user->delete();
+//                        $user->delete();
                         $msg = Yii::t('register', 'Error.Activation email could not be sent.Please register again.');
                         Yii::app()->user->setFlash('danger', $msg);
                         $this->redirect(bu() . '/site/register');

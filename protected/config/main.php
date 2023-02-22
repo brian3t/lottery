@@ -84,7 +84,7 @@ return array(
         'urlManager' => array(
 			'urlFormat' => 'path',
 			'showScriptName' => false,
-			'baseUrl' => '/lottery',
+			'baseUrl' => '',
 			'rules' => array(
 				'site/page/<view:\w+>' => 'site/page/',
 				'<controller:\w+>/<id:\d+>' => '<controller>/view',
