@@ -86,12 +86,26 @@ return array(
 			'showScriptName' => false,
 			'baseUrl' => '',
 			'rules' => array(
+                'info' => ['site/info', 'caseSensitive' => false],//Andrew
+//                'info' => 'site/info', 'caseSensitive' => false],//Andrew
+//                  'info/<whatever>/<value:\w+>' => 'site/info',//Andrew
 				'site/page/<view:\w+>' => 'site/page/',
 				'<controller:\w+>/<id:\d+>' => '<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
 				'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
 			),
         ),
+        /*'urlManager' => array(
+			'urlFormat' => 'path',
+			'showScriptName' => false,
+			'baseUrl' => '',
+			'rules' => array(
+				'site/page/<view:\w+>' => 'site/page/',
+				'<controller:\w+>/<id:\d+>' => '<controller>/view',
+				'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+				'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+			),
+        ),*/
 
         /*'db'=>array(
             'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',

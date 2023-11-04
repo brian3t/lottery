@@ -1,7 +1,7 @@
 <?php
 
 // Allow from any origin
-$http_origin = $_SERVER['HTTP_ORIGIN'];
+$http_origin = $_SERVER['HTTP_ORIGIN'] ?? null;
 if (isset($http_origin)) {
     // Decide if the origin in $_SERVER['HTTP_ORIGIN'] is one
     // you want to allow, and if so:

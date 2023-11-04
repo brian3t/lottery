@@ -56,6 +56,16 @@ class SiteController extends Controller
     }
 
     /**
+     * This is the action to handle external exceptions.
+     */
+    public function actionInfo()
+    {
+//        echo $val;
+        $req = Yii::app()->getRequest();
+        echo 'site / info here';
+    }
+
+    /**
      * Displays the contact page
      */
     public function actionContact()
